@@ -1,0 +1,19 @@
+Los modulos de alno nivel no deben depender de modulos de bajo nivel. ambos deben depender de abstracciones
+Las abstracciones no deben depender de detalles. Los detalles deben depender de abstracciones.
+la inversio´n de dependencia, cuyo objetivo principal es desacoplar nuestro co´digo de sus dependencias directas.  
+Este principio viene a decir que las clases de las capas superiores no deberían depender de las clases de las capas inferiores, sino que ambas deberían depender de abstracciones. 
+A su vez, dichas abstracciones no deberían depender de los detalles, sino que son los detalles los que deberían depender de las mismas.
+
+La inversión de dependencias da origen a la inyección de dependencias. Este concepto se basa en hacer que una clase A inyecte objetos en una clase B en lugar de dejar que sea la propia clase B la que se encargue de instanciar el objeto.
+ Veamoslo con el ejemplo del vehiculo:
+
+
+
+El código anterior ilustra la manera “habitual” de definir la colaboración entre clases. Como podemos observar, existe una clase Vehicle que contiene un objeto de la clase Engine. 
+La clase Vehicle obtiene las revoluciones del motor invocando el método getEngineRPM del objeto Motor y devolviendo su resultado. 
+Este caso se corresponde con una dependencia, el módulo superior Vehicle depende del módulo inferior Engine, lo cual genera un código tremendamente acoplado y dificil de testear.
+Para desacoplar la dependencia Engine de Vehicle debemos hacer que la clase Vehicle deje de responsabilizarse de instanciar el objeto Engine, inyectándolo como parámetro al constructor, 
+evitando así que la responsabilidad recaiga sobre la propia clase. De este modo desacoplamos ambos objetos, quedando la clase tal que así:
+Ahora la responsabilidad de instanciar la clase engine ya no corresponde a la clase vehicule. 
+Además, en Python, el parámetro engine no tiene porqué ser una instancia de la clase engine, podría ser cualquier objeto siempre y cuando tuviera un método getRPM(). Esta es una ventaja inherente a los lenguajes dinámicos, 
+ya que nos permiten aprovechar el duck typing y evitar así tener que definir el tipo de la dependencia.
