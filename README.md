@@ -1,8 +1,4 @@
 # Ejemplos-de-Principios-python
-Nicolas meneses guerrero
+Nicolas Meneses Guerrero 20161020533
 
-camilo ramirez alarcon 
-
-
-
-
+Camilo Ramirez Alarcon 20142020078
